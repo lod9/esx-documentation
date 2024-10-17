@@ -4,7 +4,6 @@ Offical guide to installing **ESX Legacy**.
 
 Make sure you have successfully installed and setup your [database](../../tutorials/database) before you start! 😄
 
-- [Host your server with Oxygenserv, use code `ESX` for 10% off](https://www.oxygenserv.com/en/hosting/gta-v-server/)
 - [Exand your server with scripts From Rcore, Use creator code `ESX` for 10% off](https://store.rcore.cz/esx)
 
 ## Requirements

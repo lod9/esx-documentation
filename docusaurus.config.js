@@ -115,12 +115,6 @@ const config = {
           {
             type: 'search',
             position: 'right',
-          },
-          {
-            href: "https://oxygenserv.com",
-            position: 'right',
-            label: 'Hosting',
-            className: "dev-portal-link"
           }
         ]
       },
@@ -143,10 +137,6 @@ const config = {
               {
                 label: 'Pricing',
                 href: 'https://www.esx-framework.org/#pricing',
-              },
-              {
-                label: 'Hosting',
-                href: 'https://www.oxygenserv.com/',
               },
             ],
           },
