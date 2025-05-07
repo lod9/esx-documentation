@@ -31,6 +31,7 @@ local Elements = {
 ```
 
 ```lua title="Slider Elements"
+-- @icon - String - only supports font-awesome icons
 -- @Label - String - name to show to user
 -- @name - String - element identifier
 -- @value - Number - Default value for slider
@@ -38,16 +39,17 @@ local Elements = {
 -- @min - Number - Minimum Slider Value
 -- @max - Number - Maximum Slider Value
 local Elements = {
-  {label = "Bread - £200", name = "bread", value = 1, type = 'slider', min = 1,max = 100}
+  {icon = 'fa-solid fa-money-bill', label = "Bread - £200", name = "bread", value = 1, type = 'slider', min = 1,max = 100}
 }
 ```
 
 ```lua title="HTML Elements"
+-- @icon - String - only supports font-awesome icons
 -- @Label - String - name to show to user
 -- @name - String - element identifier
 -- Element Labels also have HTML support!
 local Elements = {
-  {label = '<span style="color:green;">HEY! IM GREEN!/span>', name = "geen_element"}
+  {icon = 'fa-solid fa-money-bill', label = '<span style="color:green;">HEY! IM GREEN!/span>', name = "geen_element"}
 }
 ```
 
@@ -89,14 +91,19 @@ Once you combine all these parts, you get a Menu Interface in which you can inte
 
 ```lua
     local Elements = {
-        {label = "I`m An Element", name = "element1"},
-        {label = "Bread - £200", name = "bread", value = 1, type = 'slider', min = 1,max = 100},
-        {label = '<span style="color:green;">HEY! IM GREEN!/span>', name = "geen_element"}
+        {icon = 'fa-solid fa-house', label = "I`m An Element", name = "element1"},
+        {icon = 'fa-solid fa-bread-slice', label = "Bread - £200", name = "bread", value = 1, type = 'slider', min = 1,max = 100},
+        {icon = 'fa-solid fa-money-bill', label = 'Deposit Money', name = "geen_element"}
       }
-
+ 
       ESX.UI.Menu.Open("default", GetCurrentResourceName(), "Example_Menu", {
         title = "Example Menu", -- The Name of Menu to show to users,
         align    = 'top-left', -- top-left | top-right | bottom-left | bottom-right | center |
+        scale = 0.9, -- Scale of the menu, 0.9 is default
+        locales = {
+            backspace = "BACK", -- The name of the backspace button to show to users
+            select = "SELECT" -- The name of the select button to show to users
+        },
         elements = Elements -- define elements as the pre-created table
       }, function(data,menu) -- OnSelect Function
         --- for a simple element
@@ -104,12 +111,12 @@ Once you combine all these parts, you get a Menu Interface in which you can inte
           print("Element 1 Selected")
           menu.close()
         end
-
+ 
         -- for slider elements
-
+ 
         if data.current.name == "bread" then
           print(data.current.value)
-
+ 
           if data.current.value == 69 then
             print("Nice!")
             menu.close()
